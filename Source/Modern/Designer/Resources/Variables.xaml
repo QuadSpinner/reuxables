@@ -1,0 +1,48 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<ResourceDictionary.MergedDictionaries>
+		<ResourceDictionary Source="Palette.xaml" />
+	</ResourceDictionary.MergedDictionaries>
+
+	<!--  Named Brushes  -->
+
+	<SolidColorBrush x:Key="WindowBG" Color="{StaticResource Gray4}" />
+
+	<SolidColorBrush x:Key="Text" Color="{StaticResource White2}" />
+	<SolidColorBrush x:Key="Border" Color="{StaticResource Gray1}" />
+	<SolidColorBrush x:Key="BorderLight" Color="{StaticResource Gray3}" />
+	<SolidColorBrush x:Key="BG" Color="{StaticResource Gray2}" />
+
+	<SolidColorBrush x:Key="BorderLight1" Color="{StaticResource Gray10}" />
+	<SolidColorBrush x:Key="BorderLight2" Color="{StaticResource Gray11}" />
+	<SolidColorBrush x:Key="BorderLightBG" Color="{StaticResource Gray9}" />
+
+	<SolidColorBrush x:Key="BorderHover" Color="{StaticResource Blue1}" />
+	<SolidColorBrush x:Key="BGHover" Color="{StaticResource Blue1}" />
+
+	<SolidColorBrush x:Key="BorderFocused" Color="{StaticResource Blue1}" />
+
+	<SolidColorBrush x:Key="BorderPressed" Color="{StaticResource Gray5}" />
+	<SolidColorBrush x:Key="BorderDarkPressed" Color="{StaticResource Gray6}" />
+	<SolidColorBrush x:Key="BGPressed" Color="{StaticResource Gray7}" />
+
+	<SolidColorBrush x:Key="BorderCheckPressed" Color="{StaticResource Gray8}" />
+
+	<SolidColorBrush x:Key="Glyph" Color="{StaticResource Blue2}" />
+	<SolidColorBrush x:Key="GlyphLight" Color="{StaticResource Gray11}" />
+
+	<SolidColorBrush x:Key="BorderInvalid" Color="{StaticResource Red1}" />
+
+	<SolidColorBrush x:Key="BorderBlueBG" Color="{StaticResource Blue3}" />
+	<SolidColorBrush x:Key="BorderBlue" Color="{StaticResource Blue4}" />
+
+	<SolidColorBrush x:Key="BorderIndigoBG" Color="{StaticResource Indigo1}" />
+	<SolidColorBrush x:Key="BorderIndigo" Color="{StaticResource Indigo2}" />
+
+	<SolidColorBrush x:Key="BorderDark" Color="{StaticResource Black1}" />
+
+
+	<!--  Common Variables, such as CornerRadius  -->
+	<FontFamily x:Key="DefaultFont">Open Sans</FontFamily>
+
+
+</ResourceDictionary>

@@ -1,0 +1,25 @@
+﻿<Window x:Class="Corporate.ExtendedControls"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:sampleDataSource="clr-namespace:Expression.Blend.SampleData.SampleDataSource"
+        Title="ExtendedControls"
+        Width="1024"
+        Height="768"
+        FontFamily="Montserrat">
+	<Window.Resources>
+		<sampleDataSource:SampleDataSource x:Key="SampleDataSource" />
+	</Window.Resources>
+	<Grid DataContext="{Binding Source={StaticResource SampleDataSource}}">
+		<Calendar Margin="70.712,54.304,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" />
+		<Calendar Margin="311.01,54.304,0,0"
+		          HorizontalAlignment="Left"
+		          VerticalAlignment="Top"
+		          IsEnabled="False" />
+		<DatePicker Margin="70.712,259.566,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" />
+		<DatePicker Margin="70.712,302.232,0,0"
+		            HorizontalAlignment="Left"
+		            VerticalAlignment="Top"
+		            IsEnabled="False" />
+		<DataGrid Margin="311.01,259.566,321.99,208.434" ItemsSource="{Binding Collection}" />
+	</Grid>
+</Window>

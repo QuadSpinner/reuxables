@@ -1,0 +1,34 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<ResourceDictionary.MergedDictionaries>
+		<!--  Globals  -->
+		<ResourceDictionary Source="Resources\Palette.xaml" />
+		<ResourceDictionary Source="Resources\Variables.xaml" />
+		<ResourceDictionary Source="Internal\Consolidated.xaml" />
+
+		<!--  Controls  -->
+		<ResourceDictionary Source="Basic Controls\Button.xaml" />
+		<ResourceDictionary Source="Basic Controls\TextBox.xaml" />
+		<ResourceDictionary Source="Basic Controls\CheckBox.xaml" />
+		<ResourceDictionary Source="Basic Controls\RadioButton.xaml" />
+        <ResourceDictionary Source="Basic Controls\ScrollViewer.xaml" />
+        <ResourceDictionary Source="Basic Controls\ComboBox.xaml" />
+        <ResourceDictionary Source="Basic Controls\ListBox.xaml" />
+        <ResourceDictionary Source="Basic Controls\ProgressBar.xaml" />
+        <ResourceDictionary Source="Basic Controls\GroupBox.xaml" />
+        
+        <ResourceDictionary Source="Common Controls\ListView.xaml" />
+        <ResourceDictionary Source="Common Controls\PasswordBox.xaml" />
+        <ResourceDictionary Source="Common Controls\RichTextBox.xaml" />
+        <ResourceDictionary Source="Common Controls\Slider.xaml" />
+        <ResourceDictionary Source="Common Controls\Menu.xaml" />
+        <ResourceDictionary Source="Common Controls\TreeView.xaml" />
+        <ResourceDictionary Source="Common Controls\TabControl.xaml" />
+
+        <ResourceDictionary Source="Extended Controls\Calendar.xaml" />
+        <ResourceDictionary Source="Extended Controls\DatePicker.xaml" />
+        <ResourceDictionary Source="Extended Controls\DataGrid.xaml" />
+
+    </ResourceDictionary.MergedDictionaries>
+
+
+</ResourceDictionary>

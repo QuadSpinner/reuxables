@@ -1,0 +1,390 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                    mc:Ignorable="d">
+	<!--  Global Resources  -->
+	<ResourceDictionary.MergedDictionaries>
+		<ResourceDictionary Source="../Resources/Palette.xaml" />
+		<ResourceDictionary Source="../Resources/Variables.xaml" />
+		<ResourceDictionary Source="../Internal/Consolidated.xaml" />
+	</ResourceDictionary.MergedDictionaries>
+	<!--  Styles  -->
+
+
+	<Style x:Key="{x:Static GridView.GridViewScrollViewerStyleKey}" TargetType="{x:Type ScrollViewer}">
+		<Setter Property="Focusable" Value="false" />
+		<Setter Property="FontFamily" Value="{StaticResource DefaultFont}" />
+		<Setter Property="SnapsToDevicePixels" Value="True" />
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type ScrollViewer}">
+					<Grid Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="*" />
+							<ColumnDefinition Width="Auto" />
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="*" />
+							<RowDefinition Height="Auto" />
+						</Grid.RowDefinitions>
+						<DockPanel Margin="{TemplateBinding Padding}">
+							<ScrollViewer DockPanel.Dock="Top"
+							              Focusable="false"
+							              HorizontalScrollBarVisibility="Hidden"
+							              VerticalScrollBarVisibility="Hidden">
+								<GridViewHeaderRowPresenter Margin="2,0,2,0"
+								                            AllowsColumnReorder="{Binding TemplatedParent.View.AllowsColumnReorder,
+								                                                          RelativeSource={RelativeSource TemplatedParent}}"
+								                            ColumnHeaderContainerStyle="{Binding TemplatedParent.View.ColumnHeaderContainerStyle,
+								                                                                 RelativeSource={RelativeSource TemplatedParent}}"
+								                            ColumnHeaderContextMenu="{Binding TemplatedParent.View.ColumnHeaderContextMenu,
+								                                                              RelativeSource={RelativeSource TemplatedParent}}"
+								                            ColumnHeaderTemplate="{Binding TemplatedParent.View.ColumnHeaderTemplate,
+								                                                           RelativeSource={RelativeSource TemplatedParent}}"
+								                            ColumnHeaderTemplateSelector="{Binding TemplatedParent.View.ColumnHeaderTemplateSelector,
+								                                                                   RelativeSource={RelativeSource TemplatedParent}}"
+								                            ColumnHeaderToolTip="{Binding TemplatedParent.View.ColumnHeaderToolTip,
+								                                                          RelativeSource={RelativeSource TemplatedParent}}"
+								                            Columns="{Binding TemplatedParent.View.Columns,
+								                                              RelativeSource={RelativeSource TemplatedParent}}"
+								                            SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+
+							</ScrollViewer>
+							<ScrollContentPresenter x:Name="PART_ScrollContentPresenter"
+							                        CanContentScroll="{TemplateBinding CanContentScroll}"
+							                        Content="{TemplateBinding Content}"
+							                        ContentTemplate="{TemplateBinding ContentTemplate}"
+							                        KeyboardNavigation.DirectionalNavigation="Local"
+							                        SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+						</DockPanel>
+						<ScrollBar x:Name="PART_HorizontalScrollBar"
+						           Grid.Row="1"
+						           Cursor="Arrow"
+						           Maximum="{TemplateBinding ScrollableWidth}"
+						           Minimum="0.0"
+						           Orientation="Horizontal"
+						           ViewportSize="{TemplateBinding ViewportWidth}"
+						           Visibility="{TemplateBinding ComputedHorizontalScrollBarVisibility}"
+						           Value="{Binding HorizontalOffset,
+						                           Mode=OneWay,
+						                           RelativeSource={RelativeSource TemplatedParent}}" />
+						<ScrollBar x:Name="PART_VerticalScrollBar"
+						           Grid.Column="1"
+						           Cursor="Arrow"
+						           Maximum="{TemplateBinding ScrollableHeight}"
+						           Minimum="0.0"
+						           Orientation="Vertical"
+						           ViewportSize="{TemplateBinding ViewportHeight}"
+						           Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}"
+						           Value="{Binding VerticalOffset,
+						                           Mode=OneWay,
+						                           RelativeSource={RelativeSource TemplatedParent}}" />
+						<DockPanel Grid.Row="1"
+						           Grid.Column="1"
+						           Background="{Binding Background,
+						                                ElementName=PART_VerticalScrollBar}"
+						           LastChildFill="false">
+							<Rectangle Width="1"
+							           DockPanel.Dock="Left"
+							           Fill="White"
+							           Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}" />
+							<Rectangle Height="1"
+							           DockPanel.Dock="Top"
+							           Fill="White"
+							           Visibility="{TemplateBinding ComputedHorizontalScrollBarVisibility}" />
+						</DockPanel>
+					</Grid>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style TargetType="{x:Type ListView}">
+		<Setter Property="Background" Value="{StaticResource White1}" />
+		<Setter Property="BorderBrush" Value="{StaticResource Dark6}" />
+		<Setter Property="BorderThickness" Value="1" />
+		<Setter Property="Foreground" Value="{StaticResource Dark4}" />
+		<Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto" />
+		<Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
+		<Setter Property="ScrollViewer.CanContentScroll" Value="true" />
+		<Setter Property="VerticalContentAlignment" Value="Center" />
+		<Setter Property="FontFamily" Value="{StaticResource DefaultFont}" />
+		<Setter Property="SnapsToDevicePixels" Value="True" />
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type ListView}">
+					<Grid>
+						<VisualStateManager.VisualStateGroups>
+							<VisualStateGroup x:Name="ValidationStates">
+								<VisualState x:Name="Valid" />
+								<VisualState x:Name="InvalidFocused">
+									<Storyboard>
+										<DoubleAnimationUsingKeyFrames Storyboard.TargetName="InvalidBorder" Storyboard.TargetProperty="(UIElement.Opacity)">
+											<EasingDoubleKeyFrame KeyTime="0" Value="1" />
+										</DoubleAnimationUsingKeyFrames>
+									</Storyboard>
+								</VisualState>
+								<VisualState x:Name="InvalidUnfocused">
+									<Storyboard>
+										<DoubleAnimationUsingKeyFrames Storyboard.TargetName="InvalidBorder" Storyboard.TargetProperty="(UIElement.Opacity)">
+											<EasingDoubleKeyFrame KeyTime="0" Value="1" />
+										</DoubleAnimationUsingKeyFrames>
+									</Storyboard>
+								</VisualState>
+							</VisualStateGroup>
+						</VisualStateManager.VisualStateGroups>
+						<Border x:Name="MainBorder"
+						        Background="{TemplateBinding Background}"
+						        BorderBrush="{TemplateBinding BorderBrush}"
+						        BorderThickness="{TemplateBinding BorderThickness}"
+						        Padding="1"
+						        SnapsToDevicePixels="true">
+
+							<ScrollViewer Margin="-2,0" Padding="{TemplateBinding Padding}" Style="{DynamicResource {x:Static GridView.GridViewScrollViewerStyleKey}}">
+								<ItemsPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+							</ScrollViewer>
+						</Border>
+						<Border x:Name="InvalidBorder"
+						        BorderBrush="{StaticResource Red3}"
+						        BorderThickness="1"
+						        Opacity="0" />
+					</Grid>
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsGrouping" Value="true">
+							<Setter Property="ScrollViewer.CanContentScroll" Value="false" />
+						</Trigger>
+						<Trigger Property="IsEnabled" Value="false">
+							<Setter TargetName="MainBorder" Property="Opacity" Value="0.7" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style x:Key="ListViewItemFocusVisual">
+		<Setter Property="Control.Template">
+			<Setter.Value>
+				<ControlTemplate>
+					<Rectangle RadiusX="2"
+					           RadiusY="2"
+					           Stroke="#8E6EA6F5"
+					           StrokeThickness="1" />
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+
+	<Style TargetType="{x:Type ListViewItem}">
+		<Setter Property="FocusVisualStyle" Value="{StaticResource ListViewItemFocusVisual}" />
+		<Setter Property="Background" Value="Transparent" />
+		<Setter Property="BorderBrush" Value="Transparent" />
+		<Setter Property="BorderThickness" Value="1" />
+		<Setter Property="Margin" Value="0,0,0,0" />
+		<Setter Property="Padding" Value="5,4,5,8" />
+		<Setter Property="VerticalContentAlignment" Value="Center" />
+		<Setter Property="FontFamily" Value="{StaticResource DefaultFont}" />
+		<Setter Property="SnapsToDevicePixels" Value="True" />
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type ListViewItem}">
+					<Border x:Name="border"
+					        BorderBrush="{TemplateBinding BorderBrush}"
+					        CornerRadius="2"
+					        Padding="1,0,0,0"
+					        SnapsToDevicePixels="true">
+
+						<VisualStateManager.VisualStateGroups>
+							<VisualStateGroup x:Name="CommonStates">
+								<VisualState x:Name="Normal" />
+								<VisualState x:Name="MouseOver">
+									<Storyboard>
+										<DoubleAnimationUsingKeyFrames Storyboard.TargetName="HoverBorder" Storyboard.TargetProperty="(UIElement.Opacity)">
+											<EasingDoubleKeyFrame KeyTime="0" Value="1" />
+										</DoubleAnimationUsingKeyFrames>
+									</Storyboard>
+								</VisualState>
+								<VisualState x:Name="Disabled">
+									<Storyboard>
+										<DoubleAnimationUsingKeyFrames Storyboard.TargetName="grid" Storyboard.TargetProperty="(UIElement.Opacity)">
+											<EasingDoubleKeyFrame KeyTime="0" Value="0.3" />
+										</DoubleAnimationUsingKeyFrames>
+									</Storyboard>
+								</VisualState>
+							</VisualStateGroup>
+							<VisualStateGroup x:Name="SelectionStates">
+								<VisualState x:Name="Unselected" />
+								<VisualState x:Name="Selected">
+									<Storyboard>
+										<DoubleAnimationUsingKeyFrames Storyboard.TargetName="AccentBorder" Storyboard.TargetProperty="(UIElement.Opacity)">
+											<EasingDoubleKeyFrame KeyTime="0" Value="1" />
+										</DoubleAnimationUsingKeyFrames>
+									</Storyboard>
+								</VisualState>
+								<VisualState x:Name="SelectedUnfocused">
+									<Storyboard>
+										<DoubleAnimationUsingKeyFrames Storyboard.TargetName="AccentBorder" Storyboard.TargetProperty="(UIElement.Opacity)">
+											<EasingDoubleKeyFrame KeyTime="0" Value="0.5" />
+										</DoubleAnimationUsingKeyFrames>
+									</Storyboard>
+								</VisualState>
+							</VisualStateGroup>
+							<VisualStateGroup x:Name="FocusStates">
+								<VisualState x:Name="Unfocused" />
+								<VisualState x:Name="Focused">
+									<Storyboard />
+								</VisualState>
+							</VisualStateGroup>
+							<VisualStateGroup x:Name="ValidationStates">
+								<VisualState x:Name="Valid" />
+								<VisualState x:Name="InvalidFocused">
+									<Storyboard>
+										<DoubleAnimationUsingKeyFrames Storyboard.TargetName="InvalidBorder" Storyboard.TargetProperty="(UIElement.Opacity)">
+											<EasingDoubleKeyFrame KeyTime="0" Value="1" />
+										</DoubleAnimationUsingKeyFrames>
+									</Storyboard>
+								</VisualState>
+								<VisualState x:Name="InvalidUnfocused">
+									<Storyboard>
+										<DoubleAnimationUsingKeyFrames Storyboard.TargetName="InvalidBorder" Storyboard.TargetProperty="(UIElement.Opacity)">
+											<EasingDoubleKeyFrame KeyTime="0" Value="1" />
+										</DoubleAnimationUsingKeyFrames>
+									</Storyboard>
+								</VisualState>
+							</VisualStateGroup>
+						</VisualStateManager.VisualStateGroups>
+
+						<Grid x:Name="grid">
+							<Border x:Name="HoverBorder"
+							        Margin="0,0,0,1"
+							        Background="{StaticResource Dark7}"
+							        Opacity="0" />
+
+							<Border x:Name="AccentBorder"
+							        Margin="0,0,0,1"
+							        Background="{StaticResource Dark8}"
+							        BorderBrush="{StaticResource Blue3}"
+							        BorderThickness="4,0,0,0"
+							        Opacity="0" />
+							<Border x:Name="InvalidBorder"
+							        Margin="3,3,3,5"
+							        BorderBrush="{StaticResource Red3}"
+							        BorderThickness="1"
+							        Opacity="0" />
+							<Border x:Name="Bd"
+							        Background="{TemplateBinding Background}"
+							        BorderBrush="{TemplateBinding BorderBrush}"
+							        BorderThickness="{TemplateBinding BorderThickness}"
+							        Padding="{TemplateBinding Padding}"
+							        SnapsToDevicePixels="true">
+								<GridViewRowPresenter Margin="0,2,0,2" VerticalAlignment="Stretch" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+							</Border>
+							<Border x:Name="LineBorder" BorderBrush="{StaticResource Dark6}" BorderThickness="0,0,0,1" />
+						</Grid>
+
+					</Border>
+
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+
+	<Style x:Key="GridViewColumnHeaderGripper" TargetType="{x:Type Thumb}">
+		<Setter Property="Canvas.Right" Value="-8.5" />
+		<Setter Property="Width" Value="18" />
+		<Setter Property="Height" Value="{Binding ActualHeight, RelativeSource={RelativeSource TemplatedParent}}" />
+		<Setter Property="Padding" Value="0,3,0,4" />
+		<Setter Property="Background" Value="{StaticResource Dark3}" />
+		<Setter Property="FontFamily" Value="{StaticResource DefaultFont}" />
+		<Setter Property="SnapsToDevicePixels" Value="True" />
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type Thumb}">
+					<Border Background="#00FFFFFF" Padding="{TemplateBinding Padding}">
+						<Rectangle Width="0.5" HorizontalAlignment="Center" Fill="{StaticResource White1}" />
+					</Border>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+	<Style x:Key="{x:Type GridViewColumnHeader}" TargetType="{x:Type GridViewColumnHeader}">
+		<Setter Property="HorizontalContentAlignment" Value="Center" />
+		<Setter Property="VerticalContentAlignment" Value="Center" />
+		<Setter Property="Background" Value="{StaticResource White1}" />
+		<Setter Property="Padding" Value="2,6,2,8" />
+		<Setter Property="Foreground" Value="{StaticResource Blue2}" />
+		<Setter Property="FontWeight" Value="Bold" />
+		<Setter Property="FontFamily" Value="{StaticResource DefaultFont}" />
+		<Setter Property="SnapsToDevicePixels" Value="True" />
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type GridViewColumnHeader}">
+					<Grid x:Name="grid" Margin="0,1,0,1" Opacity="0.7">
+						<VisualStateManager.VisualStateGroups>
+							<VisualStateGroup x:Name="CommonStates">
+								<VisualState x:Name="Normal" />
+								<VisualState x:Name="MouseOver">
+									<Storyboard>
+										<DoubleAnimationUsingKeyFrames Storyboard.TargetName="grid" Storyboard.TargetProperty="(UIElement.Opacity)">
+											<EasingDoubleKeyFrame KeyTime="0" Value="1" />
+										</DoubleAnimationUsingKeyFrames>
+									</Storyboard>
+								</VisualState>
+								<VisualState x:Name="Pressed">
+									<Storyboard>
+										<DoubleAnimationUsingKeyFrames Storyboard.TargetName="grid" Storyboard.TargetProperty="(UIElement.Opacity)">
+											<EasingDoubleKeyFrame KeyTime="0" Value="0.4" />
+										</DoubleAnimationUsingKeyFrames>
+									</Storyboard>
+								</VisualState>
+								<VisualState x:Name="Disabled" />
+							</VisualStateGroup>
+							<VisualStateGroup x:Name="FocusStates">
+								<VisualState x:Name="Unfocused" />
+								<VisualState x:Name="Focused">
+									<Storyboard />
+								</VisualState>
+							</VisualStateGroup>
+							<VisualStateGroup x:Name="ValidationStates">
+								<VisualState x:Name="Valid" />
+								<VisualState x:Name="InvalidFocused">
+									<Storyboard />
+								</VisualState>
+								<VisualState x:Name="InvalidUnfocused" />
+							</VisualStateGroup>
+						</VisualStateManager.VisualStateGroups>
+						<Grid>
+
+							<ContentPresenter Margin="{TemplateBinding Padding}"
+							                  HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+							                  VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+							                  RecognizesAccessKey="True" />
+							<Border x:Name="LineBorder"
+							        Margin="-2,0,-2,1"
+							        BorderBrush="{StaticResource Dark6}"
+							        BorderThickness="0,0,0,1" />
+						</Grid>
+						<Canvas>
+							<Thumb x:Name="PART_HeaderGripper" HorizontalAlignment="Stretch" Style="{StaticResource GridViewColumnHeaderGripper}" />
+						</Canvas>
+					</Grid>
+					<ControlTemplate.Triggers>
+						<Trigger Property="Height" Value="Auto">
+							<Setter Property="MinHeight" Value="20" />
+						</Trigger>
+						<Trigger Property="Role" Value="Padding">
+							<Setter TargetName="PART_HeaderGripper" Property="Visibility" Value="Collapsed" />
+						</Trigger>
+						<Trigger Property="Role" Value="Floating">
+							<Setter TargetName="PART_HeaderGripper" Property="Visibility" Value="Collapsed" />
+							<Setter Property="Background" Value="{StaticResource Yellow3}" />
+							<Setter Property="Foreground" Value="{StaticResource Blue3}" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+</ResourceDictionary>

@@ -1,0 +1,466 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	x:Class="GeminiSampleProject.MainWindow"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d"
+	x:Name="Window"
+	Title="Reuxables 4.0" SnapsToDevicePixels="True" UseLayoutRounding="True"
+	Width="800" Height="400" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+
+<Border Padding="4" CornerRadius="3" Background="White" >
+	<Grid x:Name="LayoutRoot" Background="{StaticResource WindowBackgroundBrush}"  >
+		<TabControl Margin="4,34,4,24">
+			<TabItem Header="Controls1">
+				<Grid x:Name="CorecontrolsGrid">
+					<Grid Width="315" HorizontalAlignment="Left" VerticalAlignment="Top" Height="293" x:Name="LeftGrid">
+						<Grid.RowDefinitions>
+							<RowDefinition Height="32" />
+							<RowDefinition Height="32" />
+							<RowDefinition Height="32" />
+							<RowDefinition Height="32" />
+							<RowDefinition Height="30" />
+							<RowDefinition  />
+						</Grid.RowDefinitions>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition  />
+							<ColumnDefinition Width="2*" />
+						</Grid.ColumnDefinitions>
+						<TextBox TextWrapping="Wrap" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center"/>
+						<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Gender:" VerticalAlignment="Top" Grid.Row="4" Margin="0,10,0,0"/>
+						<StackPanel Grid.Column="1" HorizontalAlignment="Left" Orientation="Horizontal" Grid.Row="4" VerticalAlignment="Top" Margin="0,10,0,0">
+							<RadioButton Content="Male" d:LayoutOverrides="Height"/>
+							<RadioButton Content="Female" VerticalAlignment="Top" Margin="5,0,0,0"/>
+						</StackPanel>
+						<TextBlock TextWrapping="Wrap" Text="First Name:" HorizontalAlignment="Left" Grid.Row="1" d:LayoutOverrides="Height" VerticalAlignment="Center"/>
+						<TextBox TextWrapping="Wrap" Grid.Column="1" Grid.Row="2" VerticalAlignment="Center"/>
+						<TextBlock TextWrapping="Wrap" Text="Last Name:" Grid.Row="2" d:LayoutOverrides="Width, Height" VerticalAlignment="Center"/>
+						<TextBlock TextWrapping="Wrap" Text="Date of Birth:" Grid.Row="3" d:LayoutOverrides="Width, Height" VerticalAlignment="Center"/>
+						<StackPanel Grid.Column="1" Orientation="Horizontal" Grid.Row="3" d:LayoutOverrides="Width" Margin="2" VerticalAlignment="Top">
+							<TextBox x:Name="txtDate" TextWrapping="Wrap" Text="Date" GotFocus="txtDate_GotFocus" LostFocus="txtDate_LostFocus" Margin="0,0,2,0" Width="38" VerticalAlignment="Top"/>
+							<ComboBox d:LayoutOverrides="Height" Width="121" Margin="2,0" VerticalAlignment="Center">
+								<ComboBoxItem Content="Select Month" IsSelected="True" />
+								<ComboBoxItem Content="January" />
+								<ComboBoxItem Content="February" />
+								<ComboBoxItem Content="March" />
+								<ComboBoxItem Content="April" />
+								<ComboBoxItem Content="May" />
+								<ComboBoxItem Content="June" />
+								<ComboBoxItem Content="July" />
+								<ComboBoxItem Content="August" />
+								<ComboBoxItem Content="September" />
+								<ComboBoxItem Content="October" />
+								<ComboBoxItem Content="November" />
+								<ComboBoxItem Content="December" />
+						
+							</ComboBox>
+							<TextBox x:Name="txtYear" TextWrapping="Wrap" Text="Year" GotFocus="txtYear_GotFocus" LostFocus="txtYear_LostFocus" Margin="4,0,2,0" Width="37" VerticalAlignment="Top"/>
+						</StackPanel>
+						<ListBox VerticalAlignment="Top" Grid.ColumnSpan="2" Margin="0,19,0,0" Height="84" Grid.Row="5">
+							<ListBoxItem Content="Beginner"/>
+							<ListBoxItem Content="Intermediate" IsSelected="True"/>
+							<ListBoxItem Content="Advanced"/>
+						</ListBox>
+						<TextBlock TextWrapping="Wrap" Text="Select skill level:" VerticalAlignment="Top" Grid.ColumnSpan="2" Grid.Row="5" d:LayoutOverrides="Width" Margin="0,4,0,0"/>
+						<TextBlock TextWrapping="Wrap" Text="New User Registration" FontWeight="Bold" d:LayoutOverrides="Width, Height" Grid.ColumnSpan="2" VerticalAlignment="Center"/>
+					</Grid>
+					<Grid Width="295" Margin="175,0,0,0" VerticalAlignment="Top" Height="293" x:Name="CenterGrid">
+						<Grid.RowDefinitions>
+							<RowDefinition Height="35" />
+							<RowDefinition Height="35"  />
+							<RowDefinition Height="35"  />
+							<RowDefinition Height="35"  />
+							<RowDefinition Height="45"  />
+						</Grid.RowDefinitions>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="120"  />
+							<ColumnDefinition Width="2*" />
+						</Grid.ColumnDefinitions>
+						<TextBlock TextWrapping="Wrap" Text="Username:" VerticalAlignment="Center" HorizontalAlignment="Left" Width="110"/>
+						<TextBlock TextWrapping="Wrap" Text="Password:" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="1"/>
+						<TextBlock TextWrapping="Wrap" Text="Confirm Password:" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="2" Width="110"/>
+						<PasswordBox Grid.Row="1" Grid.Column="1" VerticalAlignment="Center"/>
+						<PasswordBox Grid.Row="2" Grid.Column="1" VerticalAlignment="Center"/>
+						<TextBox TextWrapping="Wrap" Grid.Column="1" VerticalAlignment="Center"/>
+						<TextBlock TextWrapping="Wrap" Text="Email Address:" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="3" Width="110"/>
+						<TextBox TextWrapping="Wrap" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center"/>
+						<CheckBox x:Name="checkBox" Content="Unlimited" VerticalAlignment="Bottom" Grid.Column="1" HorizontalAlignment="Left" Margin="8,0,0,-45" Grid.Row="4" Height="24"/>
+					</Grid>
+					<StackPanel Margin="315,140,150,0" Orientation="Vertical" VerticalAlignment="Top">
+						<TextBlock TextWrapping="Wrap" Text="Choose storage:" Margin="11,0,0,0"/>
+						<Slider x:Name="slider" Maximum="100" Value="45" BorderThickness="0" Margin="8,4,8,0"/>
+						<ProgressBar Height="12" Value="{Binding Value, ElementName=slider}" Margin="129,4,8,0" IsIndeterminate="{Binding IsChecked, ElementName=checkBox}" ToolTipService.ToolTip="{Binding Value, ElementName=slider}"/>
+					</StackPanel>
+					<Button Content="Save" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="75" Margin="0,0,87,8"/>
+					<Button Content="Cancel" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="75" Margin="0,0,8,8"/>
+					
+				</Grid>
+			</TabItem>
+			<TabItem Header="Controls2">
+				<Grid x:Name="SDKcontrolsGrid">
+					
+					<Grid x:Name="SDKInternalGrid">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="0.12*" MaxWidth="200" MinWidth="100" />
+							<ColumnDefinition Width="Auto" />
+							<ColumnDefinition Width="0.5*"  />        
+						</Grid.ColumnDefinitions>
+						<TreeView Grid.RowSpan="2" Margin="4,4,0,4">
+							<TreeViewItem Header="Inbox (9)" Margin="0" IsExpanded="True" IsSelected="True">
+								<TreeViewItem Header="Work" Margin="0"/>
+								<TreeViewItem Header="Registration" Margin="0"/>
+								<TreeViewItem Header="Important" Margin="0"/>
+							</TreeViewItem>
+							<TreeViewItem Header="Drafts (1)" Margin="0"/>
+							<TreeViewItem Header="Junk Mail (43)" Margin="0"/>
+							<TreeViewItem Header="Deleted Items" Margin="0"/>
+							<TreeViewItem Header="Sent Items" Margin="0"/>
+						</TreeView>
+						<StackPanel Orientation="Horizontal" Grid.Column="2" Grid.RowSpan="2">
+						<Grid Margin="4" Width="407">
+
+							<DataGrid Grid.Row="0" x:Name="dataGrid" ItemsSource="{Binding Collection}" Margin="2,0,2,1"/>
+							
+							
+						</Grid>
+						<Grid Grid.Column="2" Margin="10,0,0,0" >
+							<Grid.RowDefinitions>
+								<RowDefinition Height="25" />
+								<RowDefinition Height="30" />
+								<RowDefinition Height="25" />
+								<RowDefinition Height="Auto" />
+							</Grid.RowDefinitions>
+
+							<Label HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="0" Content="Select Date"/>
+							<DatePicker Grid.Row="1" VerticalAlignment="Top" />
+							<Calendar Grid.Row="5" HorizontalAlignment="Left" />
+						</Grid>
+						</StackPanel>
+					</Grid>
+					
+				</Grid>
+			</TabItem>
+			<TabItem Header="Smart Styles">
+				<Grid>
+					<TabControl>
+						<TabItem Header="Smart Buttons">
+				<Grid>
+					<Button Content="Button" HorizontalAlignment="Left" Height="25" Margin="33,16.08,0,0" VerticalAlignment="Top" Width="80" Style="{StaticResource NuclearBlueButton}"/>
+					<Button Content="Button" HorizontalAlignment="Left" Height="25" Margin="33,45.08,0,0" VerticalAlignment="Top" Width="80" Style="{StaticResource NuclearGreenButton}"/>
+					<Button Content="Button" HorizontalAlignment="Left" Height="25" Margin="33,74.08,0,0" VerticalAlignment="Top" Width="80" Style="{StaticResource NuclearOrangeButton}"/>
+					<Button Content="Button" HorizontalAlignment="Left" Height="25" Margin="33,103.08,0,0" VerticalAlignment="Top" Width="80" Style="{StaticResource NuclearMagentaButton}"/>
+					<Button Content="Button" HorizontalAlignment="Left" Height="25" Margin="33,132.08,0,0" VerticalAlignment="Top" Width="80" Style="{StaticResource NuclearPurpleRedButton}"/>
+					<Button Content="Button" HorizontalAlignment="Left" Height="25" Margin="33,161.08,0,0" VerticalAlignment="Top" Width="80" Style="{StaticResource NuclearBlueVioletButton}"/>
+					<Button Content="Button" HorizontalAlignment="Left" Height="25" Margin="33,190.08,0,0" VerticalAlignment="Top" Width="80" Style="{StaticResource NuclearRedBrownButton}"/>
+					<Button Content="Button" HorizontalAlignment="Left" Height="25" Margin="134,16.08,0,0" VerticalAlignment="Top" Width="80" Style="{StaticResource NuclearBlueButton}" IsEnabled="False"/>
+					<Button Content="Button" HorizontalAlignment="Left" Height="25" Margin="134,45.08,0,0" VerticalAlignment="Top" Width="80" Style="{StaticResource NuclearGreenButton}" IsEnabled="False"/>
+					<Button Content="Button" HorizontalAlignment="Left" Height="25" Margin="134,74.08,0,0" VerticalAlignment="Top" Width="80" Style="{StaticResource NuclearOrangeButton}" IsEnabled="False"/>
+					<Button Content="Button" HorizontalAlignment="Left" Height="25" Margin="134,103.08,0,0" VerticalAlignment="Top" Width="80" Style="{StaticResource NuclearMagentaButton}" IsEnabled="False"/>
+					<Button Content="Button" HorizontalAlignment="Left" Height="25" Margin="134,132.08,0,0" VerticalAlignment="Top" Width="80" Style="{StaticResource NuclearPurpleRedButton}" IsEnabled="False"/>
+					<Button Content="Button" HorizontalAlignment="Left" Height="25" Margin="134,161.08,0,0" VerticalAlignment="Top" Width="80" Style="{StaticResource NuclearBlueVioletButton}" IsEnabled="False"/>
+					<Button Content="Button" HorizontalAlignment="Left" Height="25" Margin="134,190.08,0,0" VerticalAlignment="Top" Width="80" Style="{StaticResource NuclearRedBrownButton}" IsEnabled="False"/>
+				</Grid>
+			</TabItem>
+			<TabItem Header="Smart Tabs" IsSelected="True">
+				<Grid>
+					<TabControl Style="{StaticResource BlueTabControl}" Margin="10,5,0,0">
+						<TabItem Header="Top/Bottom Orientation" Style="{StaticResource BlueTabItem}">
+							<Grid>
+								<ScrollViewer>
+									<Grid>
+								<TabControl HorizontalAlignment="Left" Height="100" Style="{StaticResource BlueTabControl}" VerticalAlignment="Top" Width="230" Margin="36,8,0,0">
+									<TabItem Header="TabItem" Style="{StaticResource BlueTabItem}">
+										<Grid/>
+									</TabItem>
+									<TabItem Header="TabItem" Style="{StaticResource BlueTabItem}">
+										<Grid/>
+									</TabItem>
+									<TabItem Header="TabItem" Style="{StaticResource BlueTabItem}">
+										<Grid/>
+									</TabItem>
+								</TabControl>
+								<TabControl Height="100" Style="{StaticResource GreenTabControl}" VerticalAlignment="Top" Margin="306,8,175,0" Width="230" d:LayoutOverrides="HorizontalAlignment">
+									<TabItem Header="TabItem" Style="{StaticResource GreenTabItem}">
+										<Grid/>
+									</TabItem>
+									<TabItem Header="TabItem" Style="{StaticResource GreenTabItem}">
+										<Grid/>
+									</TabItem>
+									<TabItem Header="TabItem" Style="{StaticResource GreenTabItem}">
+										<Grid/>
+									</TabItem>
+								</TabControl>
+								<TabControl Style="{StaticResource OrangeTabControl}" Margin="36,157,0,458" HorizontalAlignment="Left" Width="230" Height="100">
+									<TabItem Header="TabItem" Style="{StaticResource OrangeTabItem}">
+										<Grid/>
+									</TabItem>
+									<TabItem Header="TabItem" Style="{StaticResource OrangeTabItem}">
+										<Grid/>
+									</TabItem>
+									<TabItem Header="TabItem" Style="{StaticResource OrangeTabItem}">
+										<Grid/>
+									</TabItem>
+								</TabControl>
+								<TabControl Style="{StaticResource MagentaTabControl}" Margin="306,157,175,458" Width="230" Height="100" d:LayoutOverrides="HorizontalAlignment">
+									<TabItem Header="TabItem" Style="{StaticResource MagentaTabItem}">
+										<Grid/>
+									</TabItem>
+									<TabItem Header="TabItem" Style="{StaticResource MagentaTabItem}">
+										<Grid/>
+									</TabItem>
+									<TabItem Header="TabItem" Style="{StaticResource MagentaTabItem}">
+										<Grid/>
+									</TabItem>
+								</TabControl>
+								<TabControl Height="100" Style="{StaticResource PurpleRedTabControl}" VerticalAlignment="Bottom" Margin="36,0,0,299" HorizontalAlignment="Left" Width="230">
+									<TabItem Header="TabItem" Style="{StaticResource PurpleRedTabItem}">
+										<Grid/>
+									</TabItem>
+									<TabItem Header="TabItem" Style="{StaticResource PurpleRedTabItem}">
+										<Grid/>
+									</TabItem>
+									<TabItem Header="TabItem" Style="{StaticResource PurpleRedTabItem}">
+										<Grid/>
+									</TabItem>
+								</TabControl>
+								<TabControl Height="100" Style="{StaticResource BlueVioletTabControl}" VerticalAlignment="Top" Margin="306,316,175,0">
+									<TabItem Header="TabItem" Style="{StaticResource BlueVioletTabItem}">
+										<Grid/>
+									</TabItem>
+									<TabItem Header="TabItem" Style="{StaticResource BlueVioletTabItem}">
+										<Grid/>
+									</TabItem>
+									<TabItem Header="TabItem" Style="{StaticResource BlueVioletTabItem}">
+										<Grid/>
+									</TabItem>
+								</TabControl>
+								<TabControl Height="100" Style="{StaticResource RedBrownTabControl}" VerticalAlignment="Top" Margin="36,487,0,0" HorizontalAlignment="Left" Width="230">
+									<TabItem Header="TabItem" Style="{StaticResource RedBrownTabItem}">
+										<Grid/>
+									</TabItem>
+									<TabItem Header="TabItem" Style="{StaticResource RedBrownTabItem}">
+										<Grid/>
+									</TabItem>
+									<TabItem Header="TabItem" Style="{StaticResource RedBrownTabItem}">
+										<Grid/>
+									</TabItem>
+								</TabControl>
+								</Grid>
+								</ScrollViewer>
+							</Grid>
+						</TabItem>
+						<TabItem Header="Left/Right Orientation" Style="{StaticResource BlueTabItem}">
+							<Grid>
+								<ScrollViewer>
+									<Grid>
+										<TabControl HorizontalAlignment="Left" Height="100" Style="{StaticResource BlueTabControl}" VerticalAlignment="Top" Width="230" Margin="36,30,0,0" TabStripPlacement="Left">
+											<TabItem Header="TabItem" Style="{StaticResource BlueTabItem}">
+												<Grid/>
+											</TabItem>
+											<TabItem Header="TabItem" Style="{StaticResource BlueTabItem}">
+												<Grid/>
+											</TabItem>
+											<TabItem Header="TabItem" Style="{StaticResource BlueTabItem}">
+												<Grid/>
+											</TabItem>
+										</TabControl>
+										<TabControl Height="100" Style="{StaticResource GreenTabControl}" VerticalAlignment="Top" Margin="366,30,115,0" Width="230" TabStripPlacement="Left">
+											<TabItem Header="TabItem" Style="{StaticResource GreenTabItem}">
+												<Grid/>
+											</TabItem>
+											<TabItem Header="TabItem" Style="{StaticResource GreenTabItem}">
+												<Grid/>
+											</TabItem>
+											<TabItem Header="TabItem" Style="{StaticResource GreenTabItem}">
+												<Grid/>
+											</TabItem>
+										</TabControl>
+										<TabControl Style="{StaticResource OrangeTabControl}" Margin="36,173,0,442" HorizontalAlignment="Left" Width="230" Height="100" TabStripPlacement="Left">
+											<TabItem Header="TabItem" Style="{StaticResource OrangeTabItem}">
+												<Grid/>
+											</TabItem>
+											<TabItem Header="TabItem" Style="{StaticResource OrangeTabItem}">
+												<Grid/>
+											</TabItem>
+											<TabItem Header="TabItem" Style="{StaticResource OrangeTabItem}">
+												<Grid/>
+											</TabItem>
+										</TabControl>
+										<TabControl Style="{StaticResource MagentaTabControl}" Margin="366,173,115,442" Width="230" Height="100" TabStripPlacement="Left">
+											<TabItem Header="TabItem" Style="{StaticResource MagentaTabItem}">
+												<Grid/>
+											</TabItem>
+											<TabItem Header="TabItem" Style="{StaticResource MagentaTabItem}">
+												<Grid/>
+											</TabItem>
+											<TabItem Header="TabItem" Style="{StaticResource MagentaTabItem}">
+												<Grid/>
+											</TabItem>
+										</TabControl>
+										<TabControl Height="100" Style="{StaticResource PurpleRedTabControl}" VerticalAlignment="Bottom" Margin="36,0,0,282" HorizontalAlignment="Left" Width="230" TabStripPlacement="Left">
+											<TabItem Header="TabItem" Style="{StaticResource PurpleRedTabItem}">
+												<Grid/>
+											</TabItem>
+											<TabItem Header="TabItem" Style="{StaticResource PurpleRedTabItem}">
+												<Grid/>
+											</TabItem>
+											<TabItem Header="TabItem" Style="{StaticResource PurpleRedTabItem}">
+												<Grid/>
+											</TabItem>
+										</TabControl>
+										<TabControl Height="100" Style="{StaticResource BlueVioletTabControl}" VerticalAlignment="Top" Width="230" HorizontalAlignment="Right" Margin="0,333,115,0" TabStripPlacement="Left">
+											<TabItem Header="TabItem" Style="{StaticResource BlueVioletTabItem}">
+												<Grid/>
+											</TabItem>
+											<TabItem Header="TabItem" Style="{StaticResource BlueVioletTabItem}">
+												<Grid/>
+											</TabItem>
+											<TabItem Header="TabItem" Style="{StaticResource BlueVioletTabItem}">
+												<Grid/>
+											</TabItem>
+										</TabControl>
+										<TabControl Height="100" Style="{StaticResource RedBrownTabControl}" VerticalAlignment="Top" Width="230" HorizontalAlignment="Left" Margin="36,497,0,0" TabStripPlacement="Left">
+											<TabItem Header="TabItem" Style="{StaticResource RedBrownTabItem}">
+												<Grid/>
+											</TabItem>
+											<TabItem Header="TabItem" Style="{StaticResource RedBrownTabItem}">
+												<Grid/>
+											</TabItem>
+											<TabItem Header="TabItem" Style="{StaticResource RedBrownTabItem}">
+												<Grid/>
+											</TabItem>
+										</TabControl>
+									</Grid>
+								</ScrollViewer>
+							</Grid>
+						</TabItem>
+						<TabItem Header="MultiTab" Style="{StaticResource BlueTabItem}">
+							<Grid>
+								<TabControl x:Name="tcMain" Margin="21,8,22,0" Style="{StaticResource BlueTabControl}" SelectionChanged="tcMain_SelectionChanged" Height="188" VerticalAlignment="Top" d:LayoutOverrides="HorizontalAlignment" >
+									<TabItem Header="TabItem" Style="{StaticResource BlueTabItem}">
+										<Grid/>
+									</TabItem>
+									<TabItem Header="TabItem" Style="{StaticResource GreenTabItem}">
+										<Grid/>
+									</TabItem>
+									<TabItem Header="TabItem" Style="{StaticResource OrangeTabItem}">
+										<Grid/>
+									</TabItem>
+									<TabItem Header="TabItem" Style="{StaticResource MagentaTabItem}">
+										<Grid/>
+									</TabItem>
+									<TabItem Header="TabItem" Style="{StaticResource PurpleRedTabItem}">
+										<Grid/>
+									</TabItem>
+									<TabItem Header="TabItem" Style="{StaticResource BlueVioletTabItem}">
+										<Grid/>
+									</TabItem>
+									<TabItem Header="TabItem" Style="{StaticResource RedBrownTabItem}">
+										<Grid/>
+									</TabItem>
+								</TabControl>
+							</Grid>
+						</TabItem>
+                                        <TabItem Header="FlatTabs"  >
+                                            <Grid>
+                                            	<TabControl Margin="71,25,291,0" Style="{DynamicResource FlatTabs}">
+                                            		<TabItem Header="TabItem" Style="{DynamicResource FlatTabItem}" Height="23.96" VerticalAlignment="Bottom">
+                                            			<Grid Style="{DynamicResource DropShadowGrid}"/>
+                                            		</TabItem>
+                                                    <TabItem Header="TabItem" Style="{DynamicResource FlatTabItem}">
+                                            			<Grid Style="{DynamicResource DropShadowGrid}"/>
+                                            		</TabItem>
+                                                    <TabItem Header="TabItem" Style="{DynamicResource FlatTabItem}">
+                                                        <Grid Style="{DynamicResource DropShadowGrid}" />
+                                                    </TabItem>
+                                                    <TabItem Header="TabItem" Style="{DynamicResource FlatTabItem}">
+                                                        <Grid Style="{DynamicResource DropShadowGrid}" />
+                                                    </TabItem>
+                                                </TabControl>
+								
+							</Grid>
+						</TabItem>
+					</TabControl>
+				</Grid>
+			</TabItem>
+			<TabItem Header="Smart Lists">
+				<Grid>
+					<ScrollViewer>
+					<Grid>
+					<ListBox HorizontalAlignment="Left" Height="133" Margin="17,18,0,0" VerticalAlignment="Top" Width="123" Style="{StaticResource SmartListBox}" ItemContainerStyle="{StaticResource BlueListBoxItem}">
+						<ListBoxItem Content="ListBoxItem" />
+						<ListBoxItem Content="ListBoxItem" IsSelected="True" />
+						<ListBoxItem Content="ListBoxItem" />
+						<ListBoxItem Content="ListBoxItem"  IsSelected="True"/>
+					</ListBox>
+					<ListBox Height="133" Margin="203,18,0,0" VerticalAlignment="Top" Style="{StaticResource SmartListBox}" ItemContainerStyle="{StaticResource GreenListBoxItem}" Width="123" HorizontalAlignment="Left" d:LayoutOverrides="Width">
+						<ListBoxItem Content="ListBoxItem" />
+						<ListBoxItem Content="ListBoxItem" IsSelected="True" />
+						<ListBoxItem Content="ListBoxItem" />
+						<ListBoxItem Content="ListBoxItem"  IsSelected="True"/>
+					</ListBox>
+					<ListBox Height="133" Margin="0,18,232,0" VerticalAlignment="Top" Style="{StaticResource SmartListBox}" ItemContainerStyle="{StaticResource OrangeListBoxItem}" HorizontalAlignment="Right" Width="123" d:LayoutOverrides="HorizontalAlignment">
+						<ListBoxItem Content="ListBoxItem" />
+						<ListBoxItem Content="ListBoxItem" IsSelected="True" />
+						<ListBoxItem Content="ListBoxItem" />
+						<ListBoxItem Content="ListBoxItem"  IsSelected="True"/>
+					</ListBox>
+					<ListBox Height="133" Margin="0,18,40,0" VerticalAlignment="Top" Style="{StaticResource SmartListBox}" ItemContainerStyle="{StaticResource MagentaListBoxItem}" HorizontalAlignment="Right" Width="123">
+						<ListBoxItem Content="ListBoxItem" />
+						<ListBoxItem Content="ListBoxItem" IsSelected="True" />
+						<ListBoxItem Content="ListBoxItem" />
+						<ListBoxItem Content="ListBoxItem"  IsSelected="True"/>
+					</ListBox>
+					<ListBox Margin="17,197,0,0" Style="{StaticResource SmartListBox}" ItemContainerStyle="{StaticResource PurpleRedListBoxItem}" HorizontalAlignment="Left" Width="123" Height="133" VerticalAlignment="Top" d:LayoutOverrides="Height">
+						<ListBoxItem Content="ListBoxItem" />
+						<ListBoxItem Content="ListBoxItem" IsSelected="True" />
+						<ListBoxItem Content="ListBoxItem" />
+						<ListBoxItem Content="ListBoxItem"  IsSelected="True"/>
+					</ListBox>
+					<ListBox Margin="203,197,0,0" Style="{StaticResource SmartListBox}" ItemContainerStyle="{StaticResource BlueVioletListBoxItem}" HorizontalAlignment="Left" Width="123" Height="133" VerticalAlignment="Top" d:LayoutOverrides="Height">
+						<ListBoxItem Content="ListBoxItem" />
+						<ListBoxItem Content="ListBoxItem" IsSelected="True" />
+						<ListBoxItem Content="ListBoxItem" />
+						<ListBoxItem Content="ListBoxItem"  IsSelected="True"/>
+					</ListBox>
+					<ListBox Margin="0,197,232,0" Style="{StaticResource SmartListBox}" ItemContainerStyle="{StaticResource RedBrownListBoxItem}" HorizontalAlignment="Right" Width="123" Height="133" VerticalAlignment="Top" d:LayoutOverrides="HorizontalAlignment, Height">
+						<ListBoxItem Content="ListBoxItem" />
+						<ListBoxItem Content="ListBoxItem" IsSelected="True" />
+						<ListBoxItem Content="ListBoxItem" />
+						<ListBoxItem Content="ListBoxItem"  IsSelected="True"/>
+					</ListBox>
+					</Grid>	
+					</ScrollViewer>
+				</Grid>
+			</TabItem>
+					</TabControl>
+				</Grid>
+			</TabItem>
+		</TabControl>
+		<Border VerticalAlignment="Top" Height="26" BorderThickness="1" BorderBrush="#FF373A3D">
+			<Border.OpacityMask>
+				<LinearGradientBrush EndPoint="1,0.5" StartPoint="0.001,0.5">
+					<GradientStop Color="#DA000000" Offset="0.049"/>
+					<GradientStop Color="Transparent" Offset="1"/>
+					<GradientStop/>
+					<GradientStop Color="#7FA3A3A3" Offset="0.026"/>
+					<GradientStop Color="#CC8C8C8C" Offset="0.394"/>
+				</LinearGradientBrush>
+			</Border.OpacityMask>
+			<Border.Background>
+				<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+					<GradientStop Color="#FF95999D" Offset="0"/>
+					<GradientStop Color="#FF474B4F" Offset="1"/>
+					<GradientStop Color="#FF7A7E81" Offset="0.494"/>
+					<GradientStop Color="#FF676B6F" Offset="0.502"/>
+				</LinearGradientBrush>
+			</Border.Background>
+			<StackPanel Orientation="Horizontal" Width="790" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="50,0,0,0">
+				<StackPanel.Effect>
+					<DropShadowEffect BlurRadius="10" Opacity="0.8" ShadowDepth="2"/>
+				</StackPanel.Effect>
+				<TextBlock x:Name="txbThemeName1" HorizontalAlignment="Right" TextWrapping="Wrap" Text="Reuxables 4.0" Margin="0,0,4,0" Foreground="White" FontSize="13.333"/>
+			</StackPanel>
+		</Border>
+	</Grid>
+	</Border>
+</Window>

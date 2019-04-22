@@ -1,0 +1,340 @@
+﻿<Window x:Class="Designer.MainWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:Themes="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero2" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" Title="Designer" Width="973" Height="597" Background="#FF323232" WindowStartupLocation="CenterScreen" mc:Ignorable="d">
+    <Window.Resources />
+
+    <Window.Style>
+        <StaticResource ResourceKey="DefaultWindow" />
+    </Window.Style>
+
+    <Grid>
+        <TabControl Margin="10" SelectedIndex="2">
+            <TabItem Header="Basic Controls">
+                <AdornerDecorator>
+                    <Grid Background="{StaticResource WindowBG}">
+                        <Button Width="75" Margin="0,0,94,10" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Button" IsDefault="True" />
+                        <Button Width="75" Margin="0,0,174,10" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Button" />
+                        <CheckBox x:Name="CheckBox1" Margin="10,23,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Content="CheckBox" IsChecked="True" />
+                        <RadioButton x:Name="RadioButton1" Margin="10,101,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Content="RadioButton" IsChecked="True" />
+                        <RadioButton x:Name="RadioButton2" Margin="10,121.343,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Content="RadioButton" />
+                        <CheckBox x:Name="CheckBox2" Margin="10,45.097,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Content="CheckBox" />
+                        <TextBox x:Name="TextBox1" Width="148.207" Height="23" Margin="157,20,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Text="TextBox" TextWrapping="Wrap" />
+                        <TextBox x:Name="TextBox2" Width="148.207" Height="23" Margin="157,48,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Text="TextBox" TextWrapping="Wrap" />
+                        <CheckBox x:Name="CheckBox2_Copy" Margin="10,67.194,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Content="CheckBox" IsEnabled="False" />
+                        <RadioButton x:Name="RadioButton2_Copy" Margin="10,141.686,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Content="RadioButton" IsEnabled="False" />
+                        <TextBox Width="148.207" Height="23" Margin="157,76,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" IsEnabled="False" Text="TextBox" TextWrapping="Wrap" />
+                        <ListBox Width="128" Height="127.856" Margin="470.826,30.173,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
+                            <ListBoxItem Content="ListBoxItem1" />
+                            <ListBoxItem x:Name="ListBoxItem2" Content="ListBoxItem2" />
+                            <ListBoxItem Content="ListBoxItem3" IsEnabled="False" />
+                            <ListBoxItem Content="ListBoxItem4" />
+                            <ListBoxItem Content="ListBoxItem5" />
+                            <ListBoxItem Content="ListBoxItem6" />
+                        </ListBox>
+                        <ComboBox x:Name="ComboBox1" Width="127" Margin="14,176.166,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
+                            <ComboBoxItem x:Name="ComboBoxItem2" Content="ComboBoxItem1" />
+                            <ComboBoxItem Content="ComboBoxItem2" />
+                            <ComboBoxItem Content="ComboBoxItem3" IsSelected="True" />
+                            <ComboBoxItem Content="ComboBoxItem4" />
+                        </ComboBox>
+
+                        <ComboBox x:Name="ComboBox3" Width="127" Margin="14,217.978,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" IsEditable="True">
+                            <ComboBoxItem Content="ComboBoxItem1" />
+                            <ComboBoxItem Content="ComboBoxItem2" />
+                            <ComboBoxItem Content="ComboBoxItem3" IsSelected="True" />
+                            <ComboBoxItem Content="ComboBoxItem4" />
+                        </ComboBox>
+                        <ComboBox x:Name="ComboBox2" Margin="161,176.166,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
+                            <ComboBoxItem Content="ComboBoxItem1" />
+                            <ComboBoxItem Content="ComboBoxItem2" />
+                            <ComboBoxItem Content="ComboBoxItem3" IsSelected="True" />
+                            <ComboBoxItem Content="ComboBoxItem4" />
+                        </ComboBox>
+
+                        <ComboBox x:Name="ComboBox2_Copy" Margin="310,176.166,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" IsEnabled="False">
+                            <ComboBoxItem Content="ComboBoxItem1" />
+                            <ComboBoxItem Content="ComboBoxItem2" />
+                            <ComboBoxItem Content="ComboBoxItem3" IsSelected="True" />
+                            <ComboBoxItem Content="ComboBoxItem4" />
+                        </ComboBox>
+                        <ComboBox x:Name="ComboBox3_Copy" Width="127" Margin="161,217.978,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" IsEditable="True" IsEnabled="False">
+                            <ComboBoxItem Content="ComboBoxItem1" />
+                            <ComboBoxItem Content="ComboBoxItem2" />
+                            <ComboBoxItem Content="ComboBoxItem3" IsSelected="True" />
+                            <ComboBoxItem Content="ComboBoxItem4" />
+                        </ComboBox>
+                        <ListBox Width="128" Height="127.856" Margin="625,30.173,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" IsEnabled="False">
+                            <ListBoxItem Content="ListBoxItem1" />
+                            <ListBoxItem x:Name="ListBoxItem1" Content="ListBoxItem" />
+                            <ListBoxItem Content="ListBoxItem3" IsEnabled="False" />
+                            <ListBoxItem Content="ListBoxItem4" />
+                            <ListBoxItem Content="ListBoxItem5" />
+                            <ListBoxItem Content="ListBoxItem6" />
+                        </ListBox>
+                        <RadioButton x:Name="toggleradio2" Margin="117.482,259,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Content="RadioButton2" GroupName="1" Style="{StaticResource ToggleRadio}" />
+                        <RadioButton x:Name="toggleradio1" Margin="16.666,259,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Content="RadioButton1" GroupName="1" IsChecked="True" Style="{StaticResource ToggleRadio}" />
+                        <RadioButton x:Name="toggleradio3" Margin="218.298,259,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Content="RadioButton3" GroupName="1" IsEnabled="False" Style="{StaticResource ToggleRadio}" />
+                        <CheckBox x:Name="togglecheck1" Margin="17.999,307,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Content="CheckBox1" IsChecked="True" Style="{StaticResource ToggleCheck}" />
+                        <CheckBox x:Name="togglecheck2" Margin="103.852,307,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Content="CheckBox2" IsChecked="True" Style="{StaticResource ToggleCheck}" />
+                        <CheckBox x:Name="togglecheck3" Margin="189.705,307,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Content="CheckBox3" IsChecked="True" IsEnabled="False" Style="{StaticResource ToggleCheck}" />
+                        <GroupBox x:Name="group1" Width="186.914" Margin="0,235.32,281.26,0" HorizontalAlignment="Right" Header="GroupBox" Height="154" VerticalAlignment="Top" />
+                        <GroupBox x:Name="group2" Width="186.914" Margin="0,235.32,72.26,0" HorizontalAlignment="Right" Header="GroupBox" Height="154" VerticalAlignment="Top" />
+                        <ScrollBar Height="167.767" Margin="0,33.32,134,0" HorizontalAlignment="Right" VerticalAlignment="Top" />
+                        <ScrollViewer Width="100" Height="100" Margin="850,33.32,-11,0" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                        <Button Width="75" Margin="0,0,174,75.989" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Button" Style="{StaticResource BlueButton}" />
+                        <Button Width="75" Margin="0,0,94,75.989" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Button" Style="{StaticResource BlueButton}" />
+                        <Button Width="75" Margin="0,0,174,42.645" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Button" Style="{StaticResource IndigoButton}" />
+                        <Button Width="75" Margin="0,0,94,42.645" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Button" Style="{StaticResource IndigoButton}" />
+                        <Button Width="75" Margin="0,0,343.333,80.563" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Link Button" Style="{StaticResource LinkButton}" />
+                        <Button Margin="440.667,0,423.333,80.563" VerticalAlignment="Bottom" Content="Link Button" Style="{StaticResource LinkButton}" />
+                        <Button Width="75" Margin="0,0,263.333,80.563" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Link Button" IsEnabled="False" Style="{StaticResource LinkButton}" />
+                        <Button Width="75" Margin="0,0,14,10" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Button" IsEnabled="False" />
+                        <Button Width="75" Margin="0,0,14,42.645" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Button" IsEnabled="False" Style="{StaticResource IndigoButton}" />
+                        <Button Width="75" Margin="0,0,14,75.989" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Button" IsEnabled="False" Style="{StaticResource BlueButton}" />
+
+                    </Grid>
+                </AdornerDecorator>
+            </TabItem>
+            <TabItem Header="Common Controls1">
+                <AdornerDecorator>
+                    <Grid Background="{StaticResource WindowBG}">
+                        <Expander x:Name="exp1" Width="127" Height="119.677" Margin="14,10,0,29.022" HorizontalAlignment="Left" VerticalAlignment="Top" Header="Expander" IsExpanded="True">
+                            <Grid>
+                                <Button HorizontalAlignment="Center" VerticalAlignment="Center" Content="Button" />
+                            </Grid>
+                        </Expander>
+                        <Expander x:Name="exp2" Width="127" Height="119.677" Margin="0,10,72,0" HorizontalAlignment="Right" VerticalAlignment="Top" Header="Expander" IsEnabled="False" IsExpanded="True">
+                            <Grid>
+                                <Button HorizontalAlignment="Center" VerticalAlignment="Center" Content="Button" />
+                            </Grid>
+                        </Expander>
+                        <Expander x:Name="exp3" Width="127" Height="119.677" Margin="161,10,0,26.356" HorizontalAlignment="Left" VerticalAlignment="Top" ExpandDirection="Up" Header="Expander" IsExpanded="True">
+                            <Grid>
+                                <Button HorizontalAlignment="Center" VerticalAlignment="Center" Content="Button" />
+                            </Grid>
+                        </Expander>
+                        <Expander x:Name="exp4" Width="127" Height="119.677" Margin="310,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" ExpandDirection="Left" Header="Expander" IsExpanded="True">
+                            <Grid>
+                                <Button HorizontalAlignment="Center" VerticalAlignment="Center" Content="Button" />
+                            </Grid>
+                        </Expander>
+                        <Expander Height="119.677" Margin="456,10,356,0" VerticalAlignment="Top" ExpandDirection="Right" Header="Expander" IsExpanded="True">
+                            <Grid>
+                                <Button HorizontalAlignment="Center" VerticalAlignment="Center" Content="Button" />
+                            </Grid>
+                        </Expander>
+                        <Expander x:Name="exp5" Width="127" Margin="14,189,0,208.98" HorizontalAlignment="Left" Header="Expander" IsExpanded="True" Style="{StaticResource DarkExpander}">
+                            <Grid>
+                                <Button HorizontalAlignment="Center" VerticalAlignment="Center" Content="Button" />
+                            </Grid>
+                        </Expander>
+                        <Expander x:Name="exp6" Width="127" Margin="163,189,0,208.98" HorizontalAlignment="Left" ExpandDirection="Up" Header="Expander" IsExpanded="True" Style="{StaticResource DarkExpander}">
+                            <Grid>
+                                <Button HorizontalAlignment="Center" VerticalAlignment="Center" Content="Button" />
+                            </Grid>
+                        </Expander>
+                        <Expander x:Name="exp7" Width="127" Margin="312,189,0,208.98" HorizontalAlignment="Left" ExpandDirection="Left" Header="Expander" IsExpanded="True" Style="{StaticResource DarkExpander}">
+                            <Grid>
+                                <Button HorizontalAlignment="Center" VerticalAlignment="Center" Content="Button" />
+                            </Grid>
+                        </Expander>
+                        <Expander x:Name="exp8" Margin="457,189,355,208.98" ExpandDirection="Right" Header="Expander" IsExpanded="True" Style="{StaticResource DarkExpander}">
+                            <Grid>
+                                <Button HorizontalAlignment="Center" VerticalAlignment="Center" Content="Button" />
+                            </Grid>
+                        </Expander>
+                        <Expander Width="127" Height="119.677" Margin="0,189,72,0" HorizontalAlignment="Right" VerticalAlignment="Top" Header="Expander" IsEnabled="False" IsExpanded="True" Style="{StaticResource DarkExpander}">
+                            <Grid>
+                                <Button HorizontalAlignment="Center" VerticalAlignment="Center" Content="Button" />
+                            </Grid>
+                        </Expander>
+                    </Grid>
+                </AdornerDecorator>
+            </TabItem>
+            <TabItem Header="Common Controls2">
+                <AdornerDecorator>
+                    <Grid Background="{StaticResource WindowBG}">
+                        <ListView Width="320" Height="175.96" Margin="10,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" IsSynchronizedWithCurrentItem="True">
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn Header="Column1" />
+                                    <GridViewColumn Header="Column2" />
+                                </GridView>
+                            </ListView.View>
+                            <ListViewItem Content="ListViewItem" />
+                            <ListViewItem Content="ListViewItem" />
+                            <ListViewItem Content="ListViewItem" IsSelected="True" />
+                            <ListViewItem Content="ListViewItem" />
+                            <ListViewItem Content="ListViewItem" />
+                            <ListViewItem Content="ListViewItem" />
+                            <ListViewItem Content="ListViewItem" />
+                            <ListViewItem Content="ListViewItem" />
+                            <ListViewItem Content="ListViewItem" />
+                            <ListViewItem Content="ListViewItem" />
+                            <ListViewItem Content="ListViewItem" />
+                            <ListViewItem Content="ListViewItem" />
+                            <ListViewItem Content="ListViewItem" />
+                            <ListViewItem Content="ListViewItem" />
+                            <ListViewItem Content="ListViewItem" />
+                            <ListViewItem Content="ListViewItem" />
+                            <ListViewItem Content="ListViewItem" />
+                            <ListViewItem Content="ListViewItem" />
+                            <ListViewItem Content="ListViewItem" />
+                            <ListViewItem Content="ListViewItem" />
+                            <ListViewItem Content="ListViewItem" />
+                            <ListViewItem Content="ListViewItem" />
+                            <ListViewItem Content="ListViewItem" />
+                            <ListViewItem Content="ListViewItem" />
+                            <ListViewItem Content="ListViewItem" />
+                            <ListViewItem Content="ListViewItem" />
+                            <ListViewItem Content="ListViewItem" />
+                            <ListViewItem Content="ListViewItem" />
+                            <ListViewItem Content="ListViewItem" />
+                            <ListViewItem Content="ListViewItem" />
+                            <ListViewItem Content="ListViewItem" />
+                            <ListViewItem Content="ListViewItem" />
+                            <ListViewItem Content="ListViewItem" />
+                            <ListViewItem Content="ListViewItem" />
+                            <ListViewItem Content="ListViewItem" />
+                            <ListViewItem Content="ListViewItem" />
+                            <ListViewItem Content="ListViewItem" />
+                            <ListViewItem Content="ListViewItem" />
+                            <ListViewItem Content="ListViewItem" />
+                            <ListViewItem Content="ListViewItem" />
+                        </ListView>
+                        <ListView Height="175.96" Margin="389,10,0,0" VerticalAlignment="Top" IsEnabled="False" IsSynchronizedWithCurrentItem="True" HorizontalAlignment="Left" Width="321">
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn Header="Column1" />
+                                    <GridViewColumn Header="Column2" />
+                                </GridView>
+                            </ListView.View>
+                            <ListViewItem Content="ListViewItem" />
+                            <ListViewItem Content="ListViewItem" />
+                            <ListViewItem Content="ListViewItem" IsSelected="True" />
+                            <ListViewItem Content="ListViewItem" />
+                            <ListViewItem Content="ListViewItem" />
+                            <ListViewItem Content="ListViewItem" />
+                            <ListViewItem Content="ListViewItem" />
+                            <ListViewItem Content="ListViewItem" />
+                            <ListViewItem Content="ListViewItem" />
+                            <ListViewItem Content="ListViewItem" />
+                            <ListViewItem Content="ListViewItem" />
+                            <ListViewItem Content="ListViewItem" />
+                            <ListViewItem Content="ListViewItem" />
+                            <ListViewItem Content="ListViewItem" />
+                            <ListViewItem Content="ListViewItem" />
+                            <ListViewItem Content="ListViewItem" />
+                            <ListViewItem Content="ListViewItem" />
+                            <ListViewItem Content="ListViewItem" />
+                            <ListViewItem Content="ListViewItem" />
+                            <ListViewItem Content="ListViewItem" />
+                            <ListViewItem Content="ListViewItem" />
+                            <ListViewItem Content="ListViewItem" />
+                            <ListViewItem Content="ListViewItem" />
+                            <ListViewItem Content="ListViewItem" />
+                            <ListViewItem Content="ListViewItem" />
+                            <ListViewItem Content="ListViewItem" />
+                            <ListViewItem Content="ListViewItem" />
+                            <ListViewItem Content="ListViewItem" />
+                            <ListViewItem Content="ListViewItem" />
+                            <ListViewItem Content="ListViewItem" />
+                            <ListViewItem Content="ListViewItem" />
+                            <ListViewItem Content="ListViewItem" />
+                            <ListViewItem Content="ListViewItem" />
+                            <ListViewItem Content="ListViewItem" />
+                            <ListViewItem Content="ListViewItem" />
+                            <ListViewItem Content="ListViewItem" />
+                            <ListViewItem Content="ListViewItem" />
+                            <ListViewItem Content="ListViewItem" />
+                            <ListViewItem Content="ListViewItem" />
+                            <ListViewItem Content="ListViewItem" />
+                        </ListView>
+                        <PasswordBox Width="100" Margin="10,214,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Password="password" />
+                        <PasswordBox Width="100" Margin="115,214,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Password="password" />
+                        <PasswordBox Width="100" Margin="220,214,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" IsEnabled="False" Password="password" />
+                        <RichTextBox x:Name="rtb1" Width="100" Margin="10,256.157,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
+                            <FlowDocument>
+                                <Paragraph>
+                                    <Run Text="RichTextBox" />
+                                </Paragraph>
+                            </FlowDocument>
+                        </RichTextBox>
+                        <RichTextBox x:Name="rtb2" Width="100" Margin="115,256.157,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
+                            <FlowDocument>
+                                <Paragraph>
+                                    <Run Text="RichTextBox" />
+                                </Paragraph>
+                            </FlowDocument>
+                        </RichTextBox>
+                        <RichTextBox Width="100" Margin="220,256.157,0,0" HorizontalAlignment="Left" IsEnabled="False" VerticalAlignment="Top">
+                            <FlowDocument>
+                                <Paragraph>
+                                    <Run Text="RichTextBox" />
+                                </Paragraph>
+                            </FlowDocument>
+                        </RichTextBox>
+
+                        <Grid Width="310" Margin="10,375.333,0,52.667" HorizontalAlignment="Left" Height="70" VerticalAlignment="Top">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="5" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Rectangle Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Fill="#FF6C6A6A" />
+                            <GridSplitter Grid.Column="1" Width="5" HorizontalAlignment="Stretch" />
+                            <Rectangle Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Fill="#FF535353" />
+                        </Grid>
+                        <StatusBar Height="30" VerticalAlignment="Bottom">
+                            <StatusBarItem Content="StatusBarItem" />
+                        </StatusBar>
+                        <TreeView Width="159" Height="175.96" Margin="747,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
+                            <TreeViewItem Header="TreeViewItem" IsExpanded="True">
+                                <TreeViewItem Width="136" HorizontalAlignment="Left" Header="TreeViewItem" />
+                                <TreeViewItem Width="136" HorizontalAlignment="Left" Header="TreeViewItem" />
+                                <TreeViewItem Width="136" HorizontalAlignment="Left" Header="TreeViewItem" />
+                                <TreeViewItem Width="136" HorizontalAlignment="Left" Header="TreeViewItem" />
+                            </TreeViewItem>
+                            <TreeViewItem Header="TreeViewItem" IsExpanded="True">
+                                <TreeViewItem Width="136" HorizontalAlignment="Left" Header="TreeViewItem" />
+                                <TreeViewItem Width="136" HorizontalAlignment="Left" Header="TreeViewItem" />
+                                <TreeViewItem Width="136" HorizontalAlignment="Left" Header="TreeViewItem" />
+                                <TreeViewItem Width="136" HorizontalAlignment="Left" Header="TreeViewItem" />
+                            </TreeViewItem>
+                            <TreeViewItem Header="TreeViewItem" />
+                            <TreeViewItem Header="TreeViewItem" />
+                            <TreeViewItem Header="TreeViewItem" />
+                        </TreeView>
+                        <TabControl Margin="354.667,214,0,0" TabStripPlacement="Bottom" Width="160" Height="150" VerticalAlignment="Top" HorizontalAlignment="Left">
+                            <TabItem Header="TabItem">
+                                <Grid />
+                            </TabItem>
+                            <TabItem Header="TabItem">
+                                <Grid />
+                            </TabItem>
+                        </TabControl>
+                        <TabControl Width="160" Margin="550,214,0,0" HorizontalAlignment="Left" TabStripPlacement="Left" Height="150" VerticalAlignment="Top">
+                            <TabItem Header="TabItem">
+                                <Grid />
+                            </TabItem>
+                            <TabItem Header="TabItem">
+                                <Grid />
+                            </TabItem>
+                        </TabControl>
+                        <TabControl Width="160" Margin="750,214,0,0" HorizontalAlignment="Left" TabStripPlacement="Right" Height="150" VerticalAlignment="Top">
+                            <TabItem Header="TabItem">
+                                <Grid />
+                            </TabItem>
+                            <TabItem Header="TabItem">
+                                <Grid />
+                            </TabItem>
+                        </TabControl>
+                        <ResizeGrip Margin="0,0,51.833,50.823" HorizontalAlignment="Right" VerticalAlignment="Bottom" />
+                        <Slider HorizontalAlignment="Right" Margin="0,0,163.333,66" VerticalAlignment="Bottom" Width="263" />
+
+                    </Grid>
+                </AdornerDecorator>
+            </TabItem>
+        </TabControl>
+        <ResizeGrip Margin="0,0,-2.167,-1.834" HorizontalAlignment="Right" VerticalAlignment="Bottom" />
+    </Grid>
+</Window>
+

@@ -1,0 +1,33 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<!--  Colors Only  -->
+	<Color x:Key="Gray1">#FF212121</Color>
+	<Color x:Key="Gray2">#FF424242</Color>
+	<Color x:Key="Gray3">#FF5d5d5d</Color>
+	<Color x:Key="Gray4">#FF333333</Color>
+	<Color x:Key="Gray5">#FF404040</Color>
+	<Color x:Key="Gray6">#FF1a1a1a</Color>
+	<Color x:Key="Gray7">#FF2e2e2e</Color>
+	<Color x:Key="Gray8">#FF353535</Color>
+	<Color x:Key="Gray9">#FF646464</Color>
+	<Color x:Key="Gray10">#FF272727</Color>
+	<Color x:Key="Gray11">#FF717171</Color>
+	<Color x:Key="Gray12">#FFA6A6A6</Color>
+
+
+	<Color x:Key="Blue1">#FF3679b7</Color>
+	<Color x:Key="Blue2">#FF4ca7e3</Color>
+
+	<Color x:Key="Blue3">#FF175d8f</Color>
+	<Color x:Key="Blue4">#FF2c6c99</Color>
+
+	<Color x:Key="Indigo1">#FF615991</Color>
+	<Color x:Key="Indigo2">#FF70689b</Color>
+
+
+	<Color x:Key="White1">#FFFFFFFF</Color>
+	<Color x:Key="White2">#FFc6c6c6</Color>
+	<Color x:Key="Red1">#FFB31B1B</Color>
+
+	<Color x:Key="Black1">#FF000000</Color>
+
+</ResourceDictionary>

@@ -1,0 +1,193 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:po="http://schemas.microsoft.com/winfx/2006/xaml/presentation/options" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d">
+
+    <!--  Global Resources  -->
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="../Resources/Palette.xaml" />
+        <ResourceDictionary Source="../Resources/Variables.xaml" />
+        <ResourceDictionary Source="../Internal/Consolidated.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+    <!--  Styles  -->
+
+    <Style x:Key="ExpanderHeaderFocusVisual">
+        <Setter Property="Control.Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Border>
+                        <Rectangle Margin="0" SnapsToDevicePixels="true" Stroke="Black" StrokeThickness="1" StrokeDashArray="1 2" />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="ExpanderDownHeaderStyle" TargetType="{x:Type ToggleButton}">
+        <Setter Property="Background" Value="{StaticResource BG}" />
+        <Setter Property="BorderBrush" Value="{StaticResource BorderLight}" />
+        <Setter Property="Foreground" Value="{StaticResource Text}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ToggleButton}">
+                    <Grid x:Name="grid" Background="Transparent" SnapsToDevicePixels="False" Margin="{TemplateBinding Padding}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="19" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Normal" />
+                                <VisualState x:Name="MouseOver">
+                                    <Storyboard>
+                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="HoverBorder">
+                                            <EasingDoubleKeyFrame KeyTime="0" Value="1" />
+                                        </DoubleAnimationUsingKeyFrames>
+
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Pressed" />
+                                <VisualState x:Name="Disabled" />
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="FocusStates">
+                                <VisualState x:Name="Unfocused" />
+                                <VisualState x:Name="Focused">
+                                    <Storyboard />
+                                </VisualState>
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="CheckStates">
+                                <VisualState x:Name="Checked">
+                                    <Storyboard>
+                                        <StringAnimationUsingKeyFrames Storyboard.TargetProperty="(TextBlock.Text)" Storyboard.TargetName="textBlock">
+                                            <DiscreteStringKeyFrame KeyTime="0" Value="▲" />
+                                        </StringAnimationUsingKeyFrames>
+
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Unchecked" />
+                                <VisualState x:Name="Indeterminate" />
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="ValidationStates">
+                                <VisualState x:Name="Valid" />
+                                <VisualState x:Name="InvalidFocused">
+                                    <Storyboard>
+                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="InvalidBorder">
+                                            <EasingDoubleKeyFrame KeyTime="0" Value="1" />
+                                        </DoubleAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="InvalidUnfocused">
+                                    <Storyboard>
+                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="InvalidBorder">
+                                            <EasingDoubleKeyFrame KeyTime="0" Value="1" />
+                                        </DoubleAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <Rectangle Fill="{TemplateBinding Background}" Stroke="{TemplateBinding BorderBrush}" StrokeThickness="1" Grid.ColumnSpan="2" Margin="0,0,0,2" />
+                        <Border BorderThickness="0,0,0,1" BorderBrush="{StaticResource BorderDarkPressed}" Grid.ColumnSpan="2" Margin="1,0,1,1" />
+                        <TextBlock x:Name="textBlock" Text="▼" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="{StaticResource GlyphLight}" />
+                        <ContentPresenter Grid.Column="1" HorizontalAlignment="Left" RecognizesAccessKey="True" SnapsToDevicePixels="True" VerticalAlignment="Center" Margin="4,4,0,4" />
+                        <Rectangle x:Name="HoverBorder" Stroke="{StaticResource BorderHover}" StrokeThickness="1" Grid.ColumnSpan="2" Opacity="0" />
+                        <Rectangle x:Name="InvalidBorder" Stroke="{StaticResource BorderInvalid}" StrokeThickness="1" Grid.ColumnSpan="2" Opacity="0" />
+                    </Grid>
+                  
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+    <Style TargetType="{x:Type Expander}">
+        <Setter Property="Background" Value="{StaticResource BG}" />
+        <Setter Property="BorderBrush" Value="{StaticResource BorderLight}" />
+        <Setter Property="Foreground" Value="{StaticResource Text}" />
+        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+        <Setter Property="VerticalContentAlignment" Value="Stretch" />
+        <Setter Property="Padding" Value="2,2,2,2" />
+        <Setter Property="Foreground" Value="{StaticResource Text}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Template" Value="{DynamicResource ExpanderTemplate}" />
+    </Style>
+
+    <Style x:Key="DarkExpander" TargetType="{x:Type Expander}">
+        <Setter Property="Background" Value="{StaticResource WindowBG}" />
+        <Setter Property="BorderBrush" Value="{StaticResource BorderLight}" />
+        <Setter Property="Foreground" Value="{StaticResource Text}" />
+        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+        <Setter Property="VerticalContentAlignment" Value="Stretch" />
+        <Setter Property="Padding" Value="2,2,2,2" />
+        <Setter Property="Foreground" Value="{StaticResource Text}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Template" Value="{DynamicResource ExpanderTemplate}" />
+    </Style>
+
+    <ControlTemplate x:Key="ExpanderTemplate" TargetType="{x:Type Expander}">
+        <Border SnapsToDevicePixels="true">
+            <VisualStateManager.VisualStateGroups>
+                <VisualStateGroup x:Name="CommonStates">
+                    <VisualState x:Name="Normal" />
+                    <VisualState x:Name="MouseOver">
+                        <Storyboard />
+                    </VisualState>
+                    <VisualState x:Name="Disabled">
+                        <Storyboard>
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="dockPanel" Storyboard.TargetProperty="(UIElement.Opacity)">
+                                <EasingDoubleKeyFrame KeyTime="0" Value="0.6" />
+                            </DoubleAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </VisualState>
+                </VisualStateGroup>
+                <VisualStateGroup x:Name="FocusStates">
+                    <VisualState x:Name="Focused">
+                        <Storyboard />
+                    </VisualState>
+                    <VisualState x:Name="Unfocused" />
+                </VisualStateGroup>
+                <VisualStateGroup x:Name="ExpansionStates">
+                    <VisualState x:Name="Expanded">
+                        <Storyboard>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="ExpandSite">
+                                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}" />
+                            </ObjectAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </VisualState>
+                    <VisualState x:Name="Collapsed">
+                        <Storyboard />
+                    </VisualState>
+                </VisualStateGroup>
+                
+                <VisualStateGroup x:Name="ValidationStates">
+                    <VisualState x:Name="Valid" />
+                    <VisualState x:Name="InvalidFocused">
+                        <Storyboard>
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="InvalidBorder">
+                                <EasingDoubleKeyFrame KeyTime="0" Value="1" />
+                            </DoubleAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </VisualState>
+                    <VisualState x:Name="InvalidUnfocused">
+                        <Storyboard>
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="InvalidBorder">
+                                <EasingDoubleKeyFrame KeyTime="0" Value="1" />
+                            </DoubleAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </VisualState>
+                </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>
+            <Grid>
+                <DockPanel x:Name="dockPanel">
+                    <ToggleButton x:Name="HeaderSite" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" ContentTemplate="{TemplateBinding HeaderTemplate}" ContentTemplateSelector="{TemplateBinding HeaderTemplateSelector}" Content="{TemplateBinding Header}" DockPanel.Dock="Top" Foreground="{TemplateBinding Foreground}" FontWeight="{TemplateBinding FontWeight}" FocusVisualStyle="{StaticResource ExpanderHeaderFocusVisual}" FontStyle="{TemplateBinding FontStyle}" FontStretch="{TemplateBinding FontStretch}" FontSize="{TemplateBinding FontSize}" FontFamily="{TemplateBinding FontFamily}" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" IsChecked="{Binding IsExpanded, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" MinWidth="0" MinHeight="0" Style="{StaticResource ExpanderDownHeaderStyle}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" Panel.ZIndex="100" />
+                    <Border x:Name="ExpandSite" Visibility="Collapsed" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1,0,1,1" Margin="1,-3,1,1">
+                        <Border Background="{StaticResource WindowBG}" Margin="0,1,0,0">
+                            <ContentPresenter DockPanel.Dock="Bottom" Focusable="false" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                        </Border>
+                    </Border>
+                </DockPanel>
+                <Rectangle x:Name="InvalidBorder" Stroke="{StaticResource BorderInvalid}" StrokeThickness="1" Opacity="0" />
+            </Grid>
+        </Border>
+      
+    </ControlTemplate>
+
+
+
+</ResourceDictionary>
